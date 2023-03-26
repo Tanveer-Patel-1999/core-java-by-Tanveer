@@ -1,0 +1,334 @@
+Data types
+=========
+java is strong typed programming language .[type chacking is very important]
+
+Q: why java is strongly typed programming language? [ because type checking is strong ]
+1:In java every varaiable and every expression has some type .
+2:each and every data type is clearly define
+3:every assigenment should be checked by checked by compiler for type compatibility
+4:because of above reason we can conclude java language is strong typed programming language.
+
+Q:java is pure object oriented language or not? [ it is not pure]
+1: when compare with old language c and c++ java has more object oriented in nature.
+ans --> 2: java is not a pure object oriented programming language because of primitive data types.[opertore overloading , multiple inheritance etc]
+
+Q:Define a data type?
+--> data type define the variable which type of data
+
+Q:types of data types
+--> they are two types of data types
+	1:primitive data type
+	2:non-primitive data type?
+	
+Q:define a primitive data type?
+--> primitive data type is built in data type
+--> the size of primitive data type is fixed
+
+Q:define non-primitive data type?
+--> non-primitive is user defined data types
+--> the size of non-primitive data type is not a fixed
+
+
+Q:how many primitive data types? [8]
+--> primitive data types divided into 2 types 
+	1:numeric data types
+	2:non-numeric data types
+	
+Q:define a numeric data type?
+--> the data type hav number on it.
+	
+Q:how many types of numeric data type?[2]
+--> numeric data type divided into two types
+	1:Integeral data type
+	2:Floating point data type
+	
+Q: define a Integer data type?	
+--> the data type does not have decimal point on it .
+	
+Q:how many type of Integer data type?
+--> they are 4 type of integer data type
+	1:byte
+	2:short
+	3:int
+	4:long
+	
+Q: define floating point data type?
+--> the data type does have decimal  point on it . 
+	
+Q:how many types of floating data type?
+--> they are 2 types of floating data type
+	1:float
+	2:double
+	
+Q: define a non-numeric data type?
+-->
+
+Q:types of non-numeric data type?
+--> they are two types
+	1:char
+	2:boolean
+	
+common thing for data type
+--------------------------
+1:except char and boolean remaining data type is called  " signed data type ".[int x = +112 , double d = -2.345] beacuse we can represent both +ve and -ve numbers
+
+note
+----
+--> sing bit 
+	0 ---> +ve
+	1 ---> -ve
+
+Q:explain byte date type?
+--> size of byte data type is 1 byte.
+--> 1 byte is equal to 8 bits
+--> byte is signed data type 
+--> maximum value is +127
+--> minimu value is -128
+--> range is -128 to +
+
+--> the most significant bit [msb] act as sing bit.
+--> 0 means +ve number
+--> 1 means -ve number
+--> +ve number will be represented directly in a memory
+--> -ve number will be represented in 2`s complimantory form.
+
+Q:byte b = 128; it is valid or not?
+--> it is not a valid it will through compile time error 
+	CE : possible loss of precisions 
+		 found : int
+		 required : byte
+		 
+Q:byte b = 1.28; it is valid or not?
+--> it is not a valid it will through compile time error 
+	CE : possible loss of precisions 
+		 found : double
+		 required : byte
+		 
+Q:byte b = true; it is valid or not?
+--> it is not a valid it will through compile time error 
+	CE : incompatible type 
+		 found : boolean
+		 required : byte
+		 
+Q:byte b = "Tanveer"; it is valid or not?
+--> it is not a valid it will through compile time error 
+	CE : incompatible type 
+		 found : java.lang.string
+		 required : byte
+		 
+Q: where byte data type is a best choice?
+--> If u want to handle a data in term of "streams" either from the "file" or from the "network" then go for byte.
+--> file supported form and network supported form is a byte.
+--> they are two types of streams
+	1: character streams
+	2: byte streams
+	
+Q:explain short data type data type?
+--> short is most rarely date type used in java.
+--> size of short is 2 byte. [ 16 bits]
+--> maximum value 32767
+--> minumu value is - 32768
+--> range -2^15 to 2^15 - 1
+
+Q:short s = 32768; is valid or not?
+--> it is not a valid it will through compile time error
+	CE : possible loss of precisions 
+		 found : int
+		 required : short
+		 
+
+Q:short s = 32.768; is valid or not?
+--> it is not a valid it will through compile time error
+	CE : possible loss of precisions 
+		 found : double
+		 required : short
+		 
+
+Q:short s = true; is valid or not?
+--> it is not a valid it will through compile time error
+	CE : incompatible type
+		 found : boolean
+		 required : short
+		 
+
+Q:short s = "patel"; is valid or not?
+--> it is not a valid it will through compile time error
+	CE : incompatible type 
+		 found : java.lang.string
+		 required : short
+		 
+Q: when short data type is best choice?
+--> it is best choice when we used "16 bit micro processor like [8085]" but these micro processor is completed out dated.
+--> and hence corresponding short date type is out dated data type.
+
+
+Q:explain int data type?
+--> most "commonely used data in java" is int data type.
+--> size 4 bytes [32 bits]
+--> maximum value -2147483648
+--> minimum value 2147483647
+--> range -2^31 to 2^31 -1
+
+Q:every integer number treated as which date type bydefult?
+--> every integer number treated int data type by defult.
+
+Q: int x = 2147483648; it is valid or not?
+--> it is not valid it will through compile time error
+	CE : integer number is too large
+
+Q: int x = 2147483648L; it is valid or not?
+--> it is not valid it will through compile time error
+	CE : possible loss of precisions
+	found : long
+	required : int
+
+Q: int x = true; it is valid or not?
+--> it is not valid it will through compile time error
+	CE : incompatible type
+	found : boolean
+	required : int
+	
+	
+Q: int x = 2147.483648; it is valid or not?
+--> it is not valid it will through compile time error
+	CE : possible loss of precisions
+	found : double
+	required : int
+	
+Q: explain long data type?
+--> some time int may not enough to hold big value then we should go for long values
+exmp:
+	1: the amout of distnce travel by leight in 1000 days,to hole this value int may not enough we should go for lonng data type.
+	
+    long l = 1,26,000*60*60*24*1000 miles;
+	
+	2: the number of character present in big file " may excied int range" hence the return of length is long but not int.
+	
+	long l  = f.length();
+	
+--> size of long is 8 bytes.[64 bits]
+--> range 2^63 to 2^63 - 1 
+
+conclusion
+--> if we want to represent small value then go for " byte".
+--> if we want to represent more then byte then go for " short".
+--> if we want to represent more then short then go for " int".
+--> if we want to represent large value then go for " long".
+
+
+note : all the above date types( byte , short , int , long ) used for represent integral value if u want to remaining
+	   floating point data type then we should go for floating point data type.
+	   
+	   
+Q:explain floating point data type?
+float
+------
+1: float : if u want 5 to 6 decimal places of accuracy then u will go for float.
+2: float follow " single precision".
+3: size of float 4 bytes.[ 32 bits]
+4: range -3.4e38 to 3.4e38
+ 
+ double
+ ----
+1: double : if u want 14 to 15 decimal points of accuracy then you will go for double.
+2: double follow " double precision" [ precision = accuracy]
+3: size of double is 8 bytes [ 64 bits]
+4: -3.7e308 to 3.7e308
+
+
+Q:explain boolean data type?
+--> size of boolean is not applicable [ virtual machine dependent]
+--> range is not applicable [ but allowed values are true or false ]
+
+Q: boolean b = true; is valid or not?
+--> it is a valid
+
+Q: boolean b = 0; is valid or not?
+--> it is an invalid and it will through compile time error
+	CE: incompatible type
+	found : int
+	required : boolean
+	
+Q:boolean b = True; is valid or not;
+--> it is invalid and it will through compile time error [ if the value is not an any type then it will treat as varaiable ]
+	CE : can not find symbol
+	symbol : varaiable True
+	location: class Test
+	
+Q:boolean b = "True"; is valid or not;
+--> it is invalid and it will through compile time error
+	CE : incompatible type
+	found : java.lang.string
+	required : boolean
+	
+exmp:
+	int x = 0 
+	if(x)
+	{
+	sout("hello");
+	}
+	else
+	{
+	sout("hi");
+	}
+	
+	o/P: CE : incompatible type
+		 found : int
+		 required : boolean
+		 
+		 
+	while(1)
+	{
+	sout("hii");
+	}
+	o/P: CE : incompatible type
+		 found : int
+		 required : boolean
+		 
+	note: if , while , do while take boolean value only .[ true and false]
+	
+Q: explain char data type?
+--> the size of char data type is 2 byte.[16 bits]
+
+
+Q: why size of char 2 bytes in old language [c / c++ ] size of char is 1 byte ?
+--> java is unicode based and old language are ASCII code based.
+--> old languages [ c and c++] are ASCII code based and number of allowed different ASCII code character are allowed to less then <= 256.
+--> to represent 256 character 8 bits are enough
+--> hence the size of char in old languages is 1 bytes
+
+--> but java is unicode based and the number of allowed different unicode character are > 256 and <= 65536
+--> to represent these many character 8 bit many not enough we should required 16 bits
+--> The size of char java is 2 bytes
+--> range 0 to 65535 character
+
+
+Wrapper class and default values
+==============
+byte --- Byte --- 0
+short --- Short --- 0
+int  --- Integer --- 0
+long --- Long --- 0
+float --- Float --- 0.0
+double --- Double --- 0.0
+boolean --- Boolean --- false
+char --- Character --- 0 [ 0 represent space character ]
+
+Q: what is default value for object?
+--> null is default value for object type.
+--> null can not be apply for primitive
+--> if we are trying to used for primitive it will give compile time error.
+
+Q:char c = null; it is valid or not?
+--> it is invalid and through compile type error
+	CE: incompatible type
+	found : null type
+	required : char
+
+
+
+
+
+	
+
+

@@ -1,0 +1,71 @@
+Language Fundametal
+===================
+Identifier
+==========
+
+1:define an Identifier? 
+2:rules for defining a java identifier? 
+3:which charachter are allowed to declared an identifier? {a-z A-Z  0-9 _ $ (charachter allowed in java identifier)}
+4:which error is through an identifier if you used  another charachter?  [compike time error]
+5:how many charachter are allowed to declared identifier? [ there is no limit]
+6:we can used reserved words [keywords] as an identifier? [no]
+7:All predefine java class name and an interfaces name we can used an indentifier? [yes we can used but it is a worst programming]
+8:identifier are casesentive or not? [yes an identifier casesentive]
+9: in which following an indentifier is valid or not?
+	1:total_number -- yes
+	2:total# -- no
+	3:ca$h -- yes
+	4:total123 -- yes
+	5:123total -- no
+	6:all@value -- no
+	7:Integer -- yes
+	8:Int -- yes
+	9:int -- no
+	10: tanveer patel -- no
+	
+Reserved words-[keywords]
+=========================
+1:Define a Reserved word or keywords?[in java some words are reserved word to represent some meaning and functionality is called as keywords]
+2:how many reserved in java? [53]
+3:define a keywords?[reserved word associated with functionality is call as keywords]
+4:how many keywords word are there in java? [50]
+5:how many used keywords are there in java? [48]
+6:how many unused  keywords are there in java [2]
+7:list  the unused keywords?[ goto, const]{ when we used unused keyword we will get compile time error }
+8:define a reserved keywords?[reserved words associated with value not a functionality is called as reserved word]
+9:how many reserved literals are there in java? [3]
+10: list the types of reserved list? [true , false, null ]
+	A: [true and false ] value for boolean data types 
+	B: null :- default value for object reference
+
+11:how many keywords for datatypes?[8]
+12:keywords for datatypes?[boolean , byte , char , short , int , float , long , double]
+13:how many keywords for flowcontrols?[11]
+14:keywords for flowcontrols?[ if , else , switch , case , default , do , while , for , break , continue , return] 
+15how many modifiers are in java ? [11 + {1 default}]
+17:keywords for modifiers?[public , private , protected , static , final , abstract , synchronized , native , strictfp , transient , volaile ]
+18:how many keywords for exception handling?[6]
+19:keywords for exception handling?[try , catch , finally , throw , throws , assert(1.4) ]
+20: how many class related keywords? [6]
+21:class related keywords?[class , interface , extends , implements , import , package ]
+22:how many types of object related keywords? [4]
+23:object related keywords? [new , instanceof , super , this ]
+24: return type keyword? [ 1 :void ] { in java return type is compulsory if a method does not return any thing then we have to declare a method with void return type}
+25:enum keywords [1: enum (1.5)] : we can used enum to define a group a named constants
+	example: enum month
+	{
+		JAN, FEB ,.... DEC;
+	}
+
+conclusion
+===========
+1: All 53 reserved words in java contains only lower case alphabates symbol.
+2: In java we have only "new" keyword in java and there is no "delete" keyword in java because destruction of usless object is responsibilty of " grabage of collector" .
+3: the following are new keyword in java [ strictfp (1.2v), assert (1.4v) , anum (1.5v) ]
+4:  strictfp but not strictFp and 
+	instanceof but not instanceOf
+	synchronized but not synchronize
+	extends but not extend
+	implements but not implement
+	import but not imports
+	const but not constant
