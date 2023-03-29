@@ -1,2 +1,267 @@
 Types of varaibale in java
 ==========================
+Q: how many types of varaibale there in java?
+--> based on varaibale represented which types of value all varaibales are divided into two  types
+	1: primitive varaibale
+	2: refernce varaibale
+
+Q: define a primitive varaibale?
+--> primitive varaibale can be used to represented  " primitive value ".
+	int x = 10;
+
+Q: define a refernce varaibales?
+--> refernce varaibales can be used to refered " Objects ".
+	Student s = new Student();
+	
+Q: based on "position of decleration " and " behaviour "  varaibale divided into three types?
+--> based on "position of decleration " and " behaviour" all varaibales are divided into three types
+	1: Instance variabale
+	2: Static variabale
+	3: Local variabale
+	
+Q: where object will be stored?
+--> object will be stored in the heap m/m.
+	
+1 define Instance variabale?
+=============================
+--> If the value of variabale is varied from object to object is called as an Instance variabale.
+--> in the case of instance variabales for every objcet a seperate copy will be created.
+--> we can decleared instance variabale " with in the class directly " but outside the " method , constructor , block ".       
+--> instance variabale will be created at the time object creation.
+--> instance variabale will be destroy at the time of object destruction.
+--> hence the scope of instance variabale is exactly same as the scope of an Object.
+--> instance variabale will be stored in the " heap memory " as the part of object.
+--> instance variabale is also know as  " object level " variable
+
+--> we can not access instance variabale directly into static area.
+--> but we access instance variabale by using " object reference " into static area.
+--> we we access instance variabale directly into isntance area
+
+--> for instance variabale jvm will always provide default and we are not required to perfomr initilization explicitly.
+	
+exmaple 1:
+	class Student
+	{
+		String name;
+		int rollNumber;
+		
+		//coding
+	}
+	
+seperate copy : 
+1 : tanveer 1
+2 : Anik 2
+3 : Asif 3
+
+exmaple 2:	
+--> we can not access instance variabale directly into static area.
+
+	class Test
+	{
+		int x = 10;
+		psvm(String[] args);
+			{
+				sout(x); 
+			}
+	}
+o/p : CE : non-static variable x cannot be referenced from a static context
+
+exmaple 3:
+--> but we access instance variabale by using " object reference " into static area.
+	
+	class Test
+	{
+		int x = 10;
+		psvm(String[] args);
+			{
+				Test t = new Test();
+				sout(t.x); 
+			}
+	}
+O/P : 10
+
+exmaple 4: 
+--> we we access instance variabale directly into isntance area
+
+public class Instance 
+{
+    int x = 7;
+    public static void main(String[] args) 
+		{
+			Instance instance = new Instance();
+			System.out.println(instance.x);
+			instance.show();
+		}
+		public void show()
+		{
+			System.out.println(x);
+		}
+}
+o/ p: 7
+	  7
+Q: what happend when you not provide intilization to the instance varaibale?
+--> for instance variabale jvm will always provide default and we are not required to perfomr initilization explicitly.
+	class Test
+		{
+			int x;
+			double d;
+			boolean b;
+			String s;
+			
+			public static void main(String[] args)
+				{			
+					Test t = new Test();
+					sout(t.x); 
+					sout(t.d);
+					sout(t.b);
+					sout(t.s);
+				}
+		}
+	O/P : 0
+		  0.0
+		  false
+		  null
+		  
+Q: what is default value of object or class or wrapper class?
+---> default value for class is " null ". 
+		
+
+2 : define static variabale?
+=============================	
+--> If the value of the variable is not varied from object to objcet then it is called " static variables ".
+--> static variable is decleared with " static modifier".
+--> in the case of static variables a single copy will be created at class level and shared by every object of the class.
+--> we can decleared static variabale " with in the class directly " but outside the " method , constructor , block ".       
+--> static variable is created at the time of "class loading".
+--> static variabale is destroy at the time of "class unLoading".
+--> scope of static variable is exactly same of "scope of .class file".
+--> static variables will be stored in "Heap memory" or [ method area]
+--> static variable also known as " class level variable ".
+
+--> we can access static variables either by " object reference " or class name" but recommanded  to used " class name".
+--> with in the same class we can used static variable directly not required class name.
+--> we can access static variables directly into both " instance and static area ".
+--> for static variabale jvm will always provide default and we are not required to perfomr initilization explicitly.
+
+
+exmaple 1:
+--> in the case of static variables a single copy will be created at class level and shared by every object of the class.
+  
+	class Student
+	{
+		String name;
+		int rollNumber;
+		static String CLG;
+		
+		//coding
+	}
+	
+seperate copy : 
+1 : tanveer 1  VSM
+2 : Anik 2 VSM
+3 : Asif 3 VSM
+
+
+
+exmaple 2:
+--> we can access static variables either by " object reference " or class name" but recommanded  to used " class name".
+ 
+	class Test
+	{
+		static int x = 10;
+		psvm(String[] args);
+			{
+				Test t = new Test();
+				sout(t.x);
+				sout(Test.x);
+			}
+	}
+	
+exmaple 3:
+--> with in the same class we can used static variable directly not required class name.
+ 
+	class Test
+	{
+		static int x = 10;
+		psvm(String[] args);
+			{
+				sout(x);
+			}
+	}
+	
+exmaple 4:
+--> we can access static variables directly into both " instance and static area ".
+
+	class Test
+	{
+		static int x = 10;
+		psvm(String[] args);
+			{
+				Test t = new Test();
+				sout(x);
+				sout(t.show);
+			}
+		public void show()
+			{
+				sout(x);
+			}
+	}
+
+exmaple 5:
+--> for static variabale jvm will always provide default and we are not required to perfomr initilization explicitly.
+	class Test
+		{
+			static int x;
+			static double d;
+			static boolean b;
+			static String s;
+			
+			public static void main(String[] args)
+				{			
+					Test t = new Test();
+					sout(t.x); 
+					sout(t.d);
+					sout(t.b);
+					sout(t.s);
+				}
+		}
+	O/P : 0
+		  0.0
+		  false
+		  null
+		 
+exmaple 6:
+--> 
+	class Test
+	{
+		static int x = 10;
+		int y = 20;
+		
+		psvm(String[] args);
+			{	
+				Test t = new Test();
+				t.x = 88;
+				t.y = 99;
+				
+				Test t1 = new Test();
+				sout(t1.x + " " + t1.y); o/p : 88 20
+			}
+	}
+	
+	
+	
+					
+Q: when a class is load?
+--> java test : command [execute Test class] 
+
+--> internally what happend
+	1: start JVM
+	2: create and start main Thread
+	3: locate Test.class file  [main Thread is check Test.class is present or not. if Test.class file not found . Exception in thread main no class found error ]
+	4: load Test.class  : static variables creation
+	5: execute main() method
+	6: unLoading Test.class : static variables destruction
+	7: terminate main Thread
+	8: shutDown Jvm
+
+			
