@@ -1,0 +1,376 @@
+java literals
+=============
+Q: define a literal?
+--> A constant value assigned to the variable is called as literal.
+exm:
+	int x = 10;
+	
+Q:for intergral data types how many type we specified the literal value?
+Q: intergral literal?
+-->	for intergral data type [ byte , short , int , long ]
+--> we can specify literal value in the following ways  : 3 way 
+
+	1: decimal letral form : int x = 10;
+	--> [base 10] 
+	--> allowed digit are { 0 to 9}
+	
+	2: Octal literal form: int x = 010; 
+	--> [ base - 8 ] 
+	--> allowed digit are { 0 to 7} 
+	--> the number start or prefix  with "0"[zero].
+	
+	3: hexa decimal literal form : int x = 0X10; 
+	--> [base 16 ] 
+	--> allowed digit are  {0 to 9 and A to F}
+	--> a to f we can used any case.[lower or upper]
+	--> the number start or prefix withzero "0X", or "0x"
+	
+Q: how many way to specified literal value to intergral data type?
+--> they are three ways
+	1: decimal letral form
+	2: Octal literal form:
+	3: hexa decimal literal form 
+	
+Q: int x = 0786; is valild or not? [because of 8 it is octal form]
+--> it is invalid and through compile time error
+	CE: integer number is too large
+	
+Q: int x = 777; is valid or not?
+--> it is valid
+
+Q: int x = 0xFace; is valid or not?
+--> it is a valid
+
+Q: int x = 0xBeer; is valid or not?[hexa decimal --> CE : ; expected]
+--> it is invalid and through compile time error	
+	CE : ; expected compile time error
+	
+Q: class Test
+	{
+		psvm(String args[])
+		{
+			int x = 10;
+			int y = 010;
+			int z = ox10;
+			
+			sout(x+".."+y+".."+z);
+		}
+	}
+	what is out put of that code?
+--> 10..8..16
+
+Q: every integral litral by default which type of value?
+--> every integral literal by default " int " type.
+
+Q:  how to specify Integral litral as a long value?
+--> specify the "l" or " L" at last, [ 10L, 010L, 0X10L ].
+
+Q: int x = 10L ; it is valid or not?
+--> it is invalid and through compile time error
+	CE : possible loss of precision
+	found : Long
+	required : int
+	
+Q: long l = 10 ; is valid or not?
+--> it is valid because long have 8 byte and assigned 4 byte .
+
+Q: how to specify Integral litral as a byte type?
+--> if you are assigning integral litral to the " byte " and the value with in the range of byte compiler treated as byte literal.
+exmp:
+	byte b = 127;
+	
+
+Q: how to specify Integral litral as a short type?
+--> if you are assigning integral litral to the " short " and the value with in the range of short compiler treated as short literal.
+exmp:
+	short s = 32767;
+	
+	
+Q:byte b = 128; it is valid or not?
+--> it is invalid and through compile time error
+	CE : possible loss of precision
+	found : int 
+	required : byte
+	
+Q:short s = 32768; is valid or not?
+--> it is invalid and through compile time error
+	CE : possible loss of precision
+	found : int
+	required : short
+	
+Q:explain Floating point literals?
+--> float litral 
+	double literal
+
+
+Q: float f = 123.456; is valid or not?
+--> it is invalild and through compile time error
+	CE : possible loss of precision
+	found : double
+	required : float
+	
+Q: float f = 123.895d; is valid or not?
+--> it is an invalid and through compile time error
+	CE : possible loss of precision
+	found : double
+	required : float
+	
+Q: how we can explicitly assigned a floating literal value?
+--> if a number end or suffix with "f" or "F" 
+exmp:
+	float f = 123.456f;
+	
+Q: double d = 123.456; is valid or not?
+--> it is valid 
+
+Q: every floating literals are by default which type of value?
+--> every floating literals are by default "double types" of value.and hence we can not assigned directly to the float variable
+
+Q: double d = 123.67D; is valid or not?
+--> it is valid 
+
+note : d and D conversion is not required for double type because all floating point are by defult double type.
+
+Q: double d = 123.456; is valid or not?
+--> it is a valid
+
+Q: double d = 0123.456; is valid or not?
+--> it is a valid
+--> beacuse it is a decimal literal but not a octal literal
+
+Q: double d = 0X123.456; is valid or not?
+--> it is an invalid and through compile time error
+	CE : malformed floating point literal
+	
+Q: which integral literal can be specifying by floating point literal?
+--> we can specifying floating point letral only in " decimal literal form" and we cant specify in octal and hexa decimal forms.
+
+Q:double d = 786; is valid or not?
+--> it is valid --> 786.0
+
+Q: double d = 0786; is valid or not?
+--> it is invalid and through compile time error [ in that point is not there]
+	CE : integer number is too large
+
+
+Q: double d = 0777; is valid or not?
+--> it is a valid
+	
+Q:double d = 0XFace; is valid or not?
+--> it is valid
+
+Q:double d = 0XFace.0; is valid or not?
+--> invalid and through compile time error
+	CE : malformed floating point literal
+	
+Q: int x = 12.30; is valid or not?
+--> it is invalid and through compile time error
+	CE : possible loss of precision
+	found : double
+	required : int
+	
+note : we can not assigned floating point literal to integral type it will through compile time error : " possible loss of precision "
+
+Q: double d = 1.2e3; is valid or not?
+--> 1.2e3 = 1.2 * 10 ^ 3
+		  = 1.2 * 1000
+		  = 1200.0
+	it is valid
+	
+Q: float f = 1.2e3; is valid or not?
+--> it is invalid and through compile time error
+	CE : possible loss of precision
+	found : double
+	required : float
+	
+Q: float f = 1.2e3F; is valid or not?
+--> it is valid
+
+note:  we can specify floating point literal even in " exponetail" form.
+
+
+Q: explian boolean literal?
+--> the only allowed values for boolean data types are [ true , false ]
+
+Q: boolean b = true; is valid or not?
+--> it is a valide
+
+Q: boolean b = 0; is valid or not?
+--> it is invalid and through compile time error
+	CE : incompatible type
+	found : int
+	required :
+	
+Q: boolean b = True; is valid or not?
+--> it is invalid and through compile time error
+	CE : can not find symbol
+	symbol : variable True
+	Location : class test
+	
+Q: boolean b = "True"; is valid or not?
+--> it is invalid and through compile time error
+	CE : incompatible type
+	found : java.lang.String
+	required : boolean
+
+
+Q: explain char literal?
+--> we can specified char literal as single character with in single quotes[''].
+exmp:	
+	char c = 'a';
+	
+==> First way to specify the char literal
+
+Q: char ch = a; is a valid or not?
+--> it is invalid and through compile time error
+	CE : can not find symbol
+	symbol : variable a
+	Location : class test
+	
+Q: char ch = "a"; is a valid or not?
+--> it is invalid and through compile time error
+	CE : incompatible type
+	found : java.lang.String
+	required : char
+	
+Q: char ch = 'ab'; is a valid or not?[ 3 CE ]
+--> it is invalid and through compile time error
+	CE : unclosed char literal
+	CE : unclosed char literal
+	CE : not a statement
+	
+==> Second way to specify the char literal
+
+--> we can specified char literal as integer literal which represent "unicode value".
+--> integer literal should be -  " decimal , octal and hexa decimal"
+--> range should be 0 to 65535
+
+Q: char ch = 0XFace; is valid or not?
+--> it is valid
+
+Q: char ch = 0777; is valid or not?
+--> it is valid
+
+Q: char ch = 65535; is valid or not?
+--> it is valid
+
+Q: char ch = 65536; is valid or not?
+--> it is invalid and through CE
+	CE : possible loss of precision
+	found : int
+	required : char
+
+==> Third way to specify the char literal
+
+--> we can represent char literal in unicode represention which is nothinng but '\uXXXX'
+--> XXXX is 4 digit hexa-decimal number
+
+Q: what is the form to represent Unicode number?
+--> '\uxxxx' :--> xxxx--> it represent 4 digit hexa-decimal number.
+exmp:
+	char ch = '\u0061'-->o/p : a
+
+Q: how many escape character are there in java?
+--> in java total 8 escape character are there.
+
+Q: list the escape character in java?
+	1: \n --> new line
+	2: \t --> horizontal tab
+	3: \r --> carriage return
+	4: \b --> back space
+	5: \f --> form feed
+	6: \' --> single quotes --> sout("this is \' symbol");
+	7: \" --> double quotes --> sout("this is \" symbol");
+	8: \\ --> back selash   --> sout("this is \\ symbol");
+	
+Q: escape characters are valid char literal or not?
+--> every escape character is char literal
+	1: char ch = '\n'; --> new line
+	2: char ch = '\t'; --> horizontal tab
+	
+Q: char ch = '\m'; is valid or not?
+--> it is invalid and through compile time error
+	CE : illegal escape character
+	
+Q: explain String literal?
+--> any sequnce of character enclosed with double code ("") is called as string literal.
+exmp: 
+	String s = "Tanveer";
+	
+Q: in 1.7v inhancement with respect to literals?
+--> they are two inhancement in 1.7v
+	1: Binary literals
+	2: useage of underscore symbole in numeric literals
+	
+Q: Explain Binary literals?
+--> for integral data types from 1.6v we can specify literal value in the following ways
+	1:decimal form
+	2:octal form
+	3:hexa-decimal form
+--> But from 1.7v onwords we can specified literal value even in binary form also.
+--> allowed digites are zero and 1 [ 0 , 1 ]
+--> binary literal number should be prefix or start with "0B" or "0b".
+exmp
+	int x = 0B1111 --> 15
+	
+
+Q: explain the usage of "_" symbol in numeric literals?
+--> from 1.7v on words we can used underscore "_" symbol b/w digites of numeric literal.
+examp:
+		double d = 1234.567
+				|
+				|
+		double d =  1_23_4.5_6_7
+		double d = 12_34.5_6_7
+		
+--> the main advantange of this approach is increase a " readability of code " will improved.
+--> we can used underscore "_" symbol only b/w the digites if we are using any where else we will get compile time error.
+--> At the time of compilation these "_" underscore symbol will be removed automatically hence after compilation the above lines will become " double d = 1234. 567;".
+
+Q:double d =  1_23_4.5_6_7; and double d = 12_34.5_6_7 how the jvm can understand both are same or not?
+--> At the time of compilation these "_" underscore symbol will be removed automatically hence after compilation the above lines will become " double d = 1234. 567;".
+
+Q: double d = 1_ _23_4_ _ _6.7_8_9; it is valid or not?
+-->it is valid because we can used more then 1 underscore "_" symbol b/w the digit .
+ 
+Q: the following are valid or not?
+	double d =  _1_23_4.5_6_7;
+	double d =  1_23_4_.5_6_7
+	double d =  1_23_4.5_6_7_
+--> they are invalid 
+--> we can used underscore "_" symbol only b/w the digites if we are using any where else we will get compile time error.
+
+Q: diagram to represent the assigning a data type to another data type?
+
+byte --> short & char --> int --> long --> float --> double
+1b			2b    2b		4b		8b 		4b			8b
+
+Q: how long data type assigned to the float data type?
+--> 8 byte long we can assigned to 4 byte float variable because both are following "different memeory representation internally".
+exm:
+	float f = 10L;
+	sout(f) --> o/p: 10.0
+	
+Q: why we can not assigned short data type to char data type and reverse?
+--> because short is singed data type and short is unsinged data type : one bit is alreday reserved for "Singed".
+--> we can assigned lower data type value to heigher data type value.
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+	
+
+	

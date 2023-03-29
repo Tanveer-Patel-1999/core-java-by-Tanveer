@@ -1,0 +1,379 @@
+Arrays
+======
+--> Agenda
+	1: Introduction
+	2: Array declerazation
+	3: Array creation
+	4: Array Intilization
+	5: Array declerazation and Array creation and Intilization in a single line
+	6: length vs length()
+	7: Anonymous Arrays
+	8: Array element assignment
+	9: Array variable assignment
+	
+	
+1: Array Introduction
+=====================
+Q:Define Array?
+--> Array is an indexed collection of fixed number of homogeneous data elements.
+
+Q: Advantages of an Array
+======================
+--> we can represent huge number of values "using single variable" so that readiability code will be approved.
+
+Q:limitations or dis-advantages
+============================
+1: Arrays are fixed in size.[ onces we creates an array there is no chance of increasing or decreasing the size based on our requirement ].
+2: Arrays can hold only homogeneous [ same type of data ] data type element.
+
+Q: when we go for array?
+--> 2: hence we used Array concept we will know the size in advanced , which may not possible always.
+
+2: Array decleration?
+=====================
+
+A: one dimensional Array decleration
+====================================
+--> valid syntax to decleration of one dimensional array
+	1: int[] x;
+	2: int []x;
+	3: int x[];
+	
+Q: which one is best choice or recomanded?
+--> int[] x ;
+--> because array_name is clearly seperated from type.
+
+Q: at the time of decleration we can assigned a size or not?
+--> at the time of decleration we can not assigned a size otherwise we will get compile time error.
+exm:
+	int[5] x ; --> it is invalid
+	int[] x ; --> it is valid
+
+Q: at the time of creation we can assigned a size or not?
+--> at the time of creation we can assigned a size of an array.
+
+A1: two dimensional Array decleration
+=====================================
+--> valid syntax to decleration of two dimensional array
+	1: int[][] x;
+	2: int [][]x;
+	3: int x[][];
+	
+	4: int[] []x;
+	5: int[] x[];
+	6: int []x[];
+	
+Q: which one is best choice or recomanded?
+--> int[][] x ;
+--> because array_name is clearly seperated from type.
+
+Q: what is dimensional for folloing examnple a and b and valid ?
+	1: int[] a, b; -->  a = 1 , b = 1	:v
+	2: int[] a[], b; -->  a = 2 , b = 1	:v
+	3: int[] a[], b[]; -->  a = 2 , b = 2
+	4: int[] []a, b; -->  a = 2 , b = 2	:v
+	5: int[] []a,b[]; --> a = 2 , b = 3 :v
+	6: int[] []a,[]b; --> CE			:IV
+	
+conclusion:
+	1: if we want to declare dimensional before the variable this rule is applicable only for first variable in decleration.
+	2: if we want to declare dimensional before the remaining variable we will CE.
+	
+2: creation of Array
+====================
+--> Every array in java is "an object" only because we will create an array using "new" keyword.
+ exm:
+	int[] a = new int[3]; //size is 3
+--> for every array type corresponding classes are available and these classes are part for java language and not available to the programmer level.
+--> we want a class name for that a array
+	sout(a.getClass().getName()); --> o/p: [I 
+--> 1D : [I	, 2D : [[I
+--> here [I : [ is class name and , I : Integer type 
+
+Q: Array type and its corresponding class name?
+-->
+	Array type 					corresponding class name
+	
+	1: int[]								[I		
+	2: int[][]								[[I
+	3: double[]								[D
+	4: short[] 								[S
+	5: byte[]								[B
+	6: boolean[]							[Z
+
+	
+loop whole
+=========
+
+conclusion
+----------
+int[] a = new int[]; ---> invalid
+int[] a = new int[6]; ---> valid
+int[] a = new int[0]; ---> valid
+int[] a = new int[-3]; ---> valid --> no compile time error but through runtime exception  RE : negative array sized exception
+
+int[] a = new int['a']; --> valid : size is 91 
+byte b = 20;
+int[] a = new int[b]; --> valid
+short s = 30;
+int[] a = new int[s]; --> valid
+int[] a = new int[9L]; --> invalid --> CE : PLP
+
+1: at the time of array creation we should specify the size otherwise we will get CE.
+2: It is ligal to have an array with size " zero " in java.{ int[] a = new int[0]; }
+3: If you are trying to specify array size with some -ve int value then we will get runtime exception saying "NegativeArraySizedException".
+4: to specify array size the allowed data types are byte , short , char , int , if are trying to specify any other data type we will get compile time error.
+
+Q: what is the maximum sized allowed array in java for int?
+--> 2147483647
+
+int[] a = new int [2147483647]; --> valid
+int[] a = new int [2147483648]; --> invalid CE: integer number is to long
+int[] a = new int [2147483647]; --> invalid RE:  outOfMemoryError
+
+
+* : 2D Array creation
+===================
+--> In java 2D array not implemented by using " matrix style" . [ lost of memory ]
+--> Some people follow "Array of arrays " approach for multi dimensional array creation. [ no loss of memory]
+--> the main advantage of "Array of arrays " approach memory utilization will be improved.
+
+Q: if you are trying to print any reference variable which method is call
+exm:
+	int[] a = new int[3];
+	sout(a) ; o/p: [I@hashcode
+	sout(x[0]); o/p: 0
+	
+--> if you are trying to print "any reference variable" internally "toString()" method will be call.
+--> toString() method return the string in the following form
+	1: class_name : [I
+	2: @
+	3: hashCode : hashCode_in_hexadecimalform	
+--> onces we create an array every array element bydefault initilized with default values [zero].
+--> if we are not satisfied with default value then we can override these value with our customized values
+
+int x [] = new int[4];
+x[0] = 10;
+x[1] = 20;
+x[2] = 30;
+x[3] = 40;
+
+x[4] = 50;  // for this we will get RE : ArrayIndexOutOfBoundException
+x[-5] = 60; // for this we will get RE : ArrayIndexOutOfBoundException
+x[2.5] = 90; // for this we will get CE : PLP , found = double , required = int
+
+note:
+--> if you are trying to access array element with out of range index ( either +ve int value or -ve int value) then we will get RE : ArrayIndexOutOfBoundException
+	Syntactally mistake : compile time problem
+	logical mistake : Run time problem
+	
+ 
+5 : Array decleration and Array creation and Intilization in a single line
+===========================================================================
+-->using curley braces {} we can do in a single line.
+ 
+	int[] a;			// decleration
+	a = new int[3];		//creation
+	a[0] = 1;			//initilization
+	a[1] = 2;
+	a[2] = 3;
+
+--> In a single line 
+	int[] a = {1,2 3};
+	char[] ch = {'a','b','c'};
+	String str = {"tas","pas"};
+	
+note:
+	every java object is created on heap m/m.
+	
+Q: int[] a = {1,2,3}; divides into mutiple line what happend?
+--> int[] a;
+	a = {1,2,3}; // it is invalid CE: illegal start of expression.
+	
+
+6: length vs length()
+=====================
+A: length :
+-----------
+--> length is a final variable
+--> length is a variable applicable for arrays
+--> length variable represent the size of the array
+
+	int[] a = new int[6];
+	sout(a.length()); o/p : CE: can not find symbol , symbol : method length() , location : class int[]
+	sout(a.length); o/p: 6
+
+B: length() :
+-------------
+--> length() is method is applicable for String object.
+--> length() method  is final method
+--> length() method return number of character present in string.
+	
+	String str = "Tanveer";
+	sout(s.length); o/p : CE: can not find symbol , symbol : variable length , location : class java.lang.String
+	sout(s.length()); o/p : 7
+	
+note: 
+	--> length variable applicable for arrays but not for String objects.
+	--> length() method applicable for String object but not for arrays
+
+Exm: best exapmple
+------------------
+	String str = {"abc","xyz"}
+	
+	sout(str.length); o/p: 2
+	sout(str.length()); o/p: CE : can not find the symbol , symbol : method length() , location : class String[]
+	sout(str[0].length); o/p : CE : can not find the symbol , symbol : variable length , location : class java.lang.String
+	sout(str[0].length()); o/p : 1
+	
+7: Anonymous array : meet with random person foe some time at only one time
+================== 
+--> Array " without name " is called as Anonymous array.
+--> the main purpose of Anonymous array is just for instance usage .[ one time usage]
+--> Anonymous array is also called as " name_less" array.
+exmp:
+	call Test
+		{
+			psvm(String[] args)
+				{
+					sum(new int[]{10,20,30,40}); // Anonymous array
+				}
+					public void sum(int[] a)
+						{
+							int total = 0;
+							for(int a1 : a)
+								{
+									total = total + a1;
+								}
+								sout("the sum = " + total);
+						}
+		}
+		
+Q: how to create Anonymous array?
+--> we can create as follows
+--> syntax:
+			new type_array[] {values...}
+--> exmp:
+			new int[]{10,20,30}
+--> while creating Anonymous Arrays we can not specify the size otherwise we will get compile time error
+	new int[3]{1,2,3} ---: invalid
+	new int[]{1,2,3} ---: valid
+--> based on our requirement we can give the name for Anonymous array then it is no longer Anonymous Array.
+examnple:
+			int[] x = new int[]{10,20,30};
+	
+
+8: Array Element Assingments
+============================
+case 1 [primitive type array ]: in the case of "primitive type array" an array element we can provide any type which can be "implicitly promoted to declared type".
+------------------------------
+int[] a = new int[5];
+a[0] = 1;
+a[1] = a; // save the a value 9 becuse : char to int 
+byte b = 20;
+a[2] = b;
+short s = 30;
+a[3] = s;
+a[4] = 2L; : CE : PLP , found : long , required : int
+
+1 : for int : byte , short , char , int
+2 : for long : byte , short , char , int , long 
+3 : for float : byte , short , char , int , long , float
+
+case 2 [ object type array ] :  in the case of Object type arrays an array elements we can provide  "either declared type Object or its child class objects".
+-----------------------------
+exmp 1:
+Object a = new Object[10];
+a[0] = new Object();
+a[1] = new String("Tanveer");
+a[2] = new Integer(10);
+
+case 3[ Abstract type Array ]: Its childs class objects are allowed
+----------------------------
+exmp 2:
+Number[] num = new Number[10];
+num[0] = new Integer(10);
+num[1] = new Short(20);
+num[3] = new Double(18.97);
+num[4] = new Byte(40);
+num[5] = new Float(1.97f);
+num[6] = new Long(9L);
+num[7] = new String("Tanveer"); CE: incompatible types , found : java.lang.String , required : java.lang.Number
+
+Number : byte , short , char , int , long , float , double
+
+
+case 4 [Interface type array ]: for Interface type array an array elements we can provide " Runnable implemention class object are allowed ".
+-----------------------------
+Runnable[] r = new Runnable[10];
+r[0] = new Thread();
+r[1] = new String("Tanveer"); CE: incompatible types , found : java.lang.String , required : java.lang.Runnable
+
+--> Runnable Interface : Thread class
+
+Q: Array types and allowed elements types
+-->
+	Array Type 					Allowed element type
+	1: primitive type 			:   Array type which can be implicitly promoted to declared type.
+	2: Object Type Array		:   Either declare type or its child class object are allowed
+	3: Abstract class type array:	Its childs class objects are allowed exm : Number
+	4: Interface Type Array		: 	its implemention class objects are allowed
+
+	
+9: Array variable Assingments
+===============================
+case 1 : element level promotion are not applicable at an Array level. 
+------
+--> for example
+	--> char element is promoted to int type but : char --> int 
+	--> char array can not promoted to int array : char[] ---> int[] : 
+	--> because of one class object can not be promted to another class : [C , [I
+	
+int[] a = { 1,2,3,4};
+	char[] ch = {'a','b','c'};
+	int[] b = x;  : valid
+	int[] c = ch; : Invalid , CE: incompatible types , found : char[] , int[]
+	
+
+Q: which are valid or invalid promotion?
+-->
+	1: char --> int  : valid
+	2: char[] --> int[] : invalid
+	3: int[] --> double[] : valid
+	4: int[] --> double[] : invalid
+	5: float --> int  : invalid
+	6: float --> int[] : invalid
+	7: String --> object : valid
+	8: String[] --> object[] : valid
+
+note : but in the case of Object type arrays "child class type array can be promoted to parent class type array".
+exmp:
+	String[] str = {"tanveer" , "patel"};
+	Object object = str; 
+	
+case 2 :whenwere we are assigning one array to another array  "internal element can not be copy just reference variable is reassinged". 
+-------
+exmp:
+		int[] a = [1,2,3,4];
+		int[] b = [6,7];
+		a = b;
+		b = a;
+--> size is not matter only type of an array is matter .
+
+case 3 :
+--------
+	class Test {
+					psvm(String[] args)
+						{
+							for(int i=0; i<args.length; i++)
+								{
+									sout(args[i]);
+								}
+						}
+				}
+	--> execution
+	1: javac Test.java
+	2: java Test A B C : RE: A B C ArrayIndexOutOfBoundException
+	3: java Test A B   : RE: A B ArrayIndexOutOfBoundException
+	4: java Test 	   : RE: ArrayIndexOutOfBoundException
+				
