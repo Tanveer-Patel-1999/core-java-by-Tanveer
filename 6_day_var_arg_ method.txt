@@ -1,0 +1,164 @@
+var-arg method : (variable number of argument methods )
+==============
+--> our requirment : sum(10,20) , sum(10,20,30) , sum(10,20,30,40) 
+Example 1:
+	public static void main(int a , int b)
+	{
+		sout(a+b);
+	}
+	sum(10,20);
+
+Example 2:
+	public static void main(int a , int b , int c)
+	{
+		sout(a+b+c);
+	}
+	sum(10,20,30);
+	
+Example 3:
+	public static void main(int a , int b , int c , int d)
+	{
+		sout(a+b+c+d);
+	}
+	sum(10,20,30,40);
+
+--> until 1.4v we can not declared method with "variable number of argument" if there is change in number of argument then we compuslory go for new method.
+--> it increase length of code and reduces readability.
+--> to over come these problem usingn  " variable number of argument methods" in 1.5v
+--> var-arg method which take variable number of argument. 
+
+Q: how we can declared var-arg method;
+--> we can declared var-arg method usingn following syntx
+	syntax : 
+			m1(var... x)
+--> we can call this method by passing any number of int value including zero number.
+
+Q: following example are valid or not?
+-->
+	m(); // valid
+	m(10); // valid
+	m2(10,20); // valid
+	m3(10,20,30); // valid
+	
+Example :
+	class Test
+		{
+			public static void sum(int... x)
+				{
+					sum("var-arg method:"+x.length);
+				}
+			psvm(String[] args)
+				{
+				sum(0);
+				sum(10);
+				sum(10,20);
+				sum(10,20,30);
+				}		
+		}
+--> internally var-arg parameter will be converted into " one dimensional array " hence with in the var-arg method we can differentiate value by "using index ".
+
+Q: where var-arg method is best choice?
+-->
+example:
+		class Test
+			{
+				public static void sum(int... x)
+					{
+						int total = 0;
+						for(int x1: x)
+							{
+								total = total + x1;
+							}
+						sout("sum = " + total);
+					}
+					psvm(String[] args)
+						{
+							sum();
+							sum(1,2);
+							sum(1,2,3);
+						}
+			}
+		o/p:sum = 0
+			sum = 3
+			sum = 6 
+
+Q:loop whole for var-arg method?
+
+case 1 : which one is valid or invalid var-arg method?
+------
+m(int... x)		: valid
+m(int...x)		: valid
+m(int   ...x	: valid [space is ignored by the compiler]
+
+m(int  x...)	: Invalid
+m(int. x..)		: Invalid
+m(int .x..)		: Invalid	
+
+case 2 : we can mix var-arg parameter with normal parameter 
+-------
+m1(int x , int...y)			: valid
+m1(String s , double...y)	: valid
+
+case 3: if we mix normal parameter with var-arg parameter then var-arg parameter should be last parameter 
+------
+m1(double...d , String s)	: Invalid [ last parameter is not var-arg parameter]
+m1(char ch , String... s)	: valid
+
+casse 4: Inside var-arg we can take only one var-arg parameter 
+-------  we can not take more then 1 var-arg parameter
+
+m1(int... x , double... d)	: Invalid [ because 2 var-arg parameter]    
+			
+case 5: Inside a class we can not declared var-arg method and corresponding 1D-array method simulatenously.otherwise we will get compile time error 		
+------
+example : method name and method signature is same that why we get CE 
+			class Test
+			{
+				public static void m(int... x)
+					{
+						sout("int...");
+					}
+					
+				public static void m(int[] x)
+					{
+						sout("int[]");
+					}
+			}
+			
+			CE: can not declared both m(int[]) and m(int...) in test
+				
+case 6:
+------	
+--> var-arg method have least priority in java. (i.e if no othere method match then only var-arg method get chance)
+--> It is exactly same as " defult case inside a switch".
+example :
+			class Test
+			{
+				public static void m(int... x)
+					{
+						sout("var-arg method");
+					}
+					
+				public static void m(int x)
+					{
+						sout("normal method");
+					}
+				psvm(String[] args)
+					{
+						m1(); 		//var-arg method
+						m1(10,20);  //var-arg method
+						m1(10); 	//normal method  [ because var-arg method have least priority ]
+			}	
+
+Q: equivalence b/w var-arg parameter and one-dimensional array
+--> one-dimensional array can be replace with var-arg parameter
+m1(int[] x) ===> m1(int...x) 	: valid 
+main(String[] x) ===> main(int... x) : valid
+m1(int...x) ===> m1(int[] x)	: Invalid
+			
+			
+Q: advantages of var-arg method?
+--> 
+							
+				
+

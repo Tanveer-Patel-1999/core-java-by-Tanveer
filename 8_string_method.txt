@@ -1,0 +1,274 @@
+String method
+=============
+note: string strat with zero index
+
+1: public char charAt(int index)
+-------------------------------
+--> charAt() display which character located in particular index
+	Example :
+		String s = "Tanveer";
+		sout(s.charAt(3));  O/P : v
+		sout(s.charAt(10));  RE : StringIndexOutOfBoundException
+		
+2: public String concat(String s)
+---------------------------------
+--> concat() is used to join two string
+	Example :
+			String s = "Tanveer";
+			s = s.concat("patel");
+			sout(s); O/P : Tanveerpatel
+			
+note : we can join two string is using " + " operator.
+	Example :
+			String s = "Tanveer";
+			s = s+"patel";
+			sout(s); O/P : Tanveerpatel
+			
+	Example :
+			String s = "Tanveer";
+			s += "patel";
+			sout(s); O/P : Tanveerpatel
+			
+3: public boolean equals(Object s)
+----------------------------------
+--> equals() method is used to check the content are same for both string objcet [ chcek equilaity]
+--> equals() method is case sensetive
+--> it return boolean value true and false
+
+	Example :
+			String s = "Tanveer";
+			sout(s.equals("tanveer"));  //F
+			sout(s.equals("Tanveer"));  //T
+			
+		
+4: public boolean equalsIgnoreCase(String s)
+--------------------------------------------
+--> to check the equality of two string and ignored the case
+--> it return boolean value [ T and F]
+	Example :
+			String s = "Tanveer";
+			sout(s.equals("tanveer"));  //T
+			sout(s.equals("Tanveer"));  //T
+		
+Q: how many equals() method are there in java?
+--> they are two equals() method are there in java
+	1: equals() : 			case-sensetive
+	2: equalsIgnoreCase() : case- ignored
+			
+Q: best used of equal() and equalsIgnoreCase() method?
+--> best used in "username and password"
+--> to validate username case is not important that time you go for " equalsIgnoreCase() method".
+--> to validate password case is important that time you go for "equal() method".
+
+5 : public boolean isEmpty()
+---------------------------
+--> to check weather a string is empty or not.
+--> it return boolean value [ T and F ].
+	Example :
+			String s = "Tanveer";
+			sout(s.isEmpty()); //F
+			String s1 = "";
+			sout(s1.isEmpty()); //T
+			
+6 : public int length()
+-----------------------
+--> to check the length of string using length()
+	Example :
+			String s = "Tanveer";
+			sout(s.length); // 7
+			
+7 : public String replace(char old , char new)
+----------------------------------------------
+--> it is used to replace a old character with new character
+	Example :
+			String s = "ababab";
+			sout(s.replace('a','b'); //bbbbbb
+			
+8 : public String substring(int begin) : from begin index to end of string
+-------------------------------------
+--> return substring from begin index to end of string.
+	example :
+			String s = "abcdefg";
+			sout(s.substring(3)); //defg
+			
+9 : public String substring(int begin , int end)
+-----------------------------------------------
+--> return substring from begin index to end-1 index
+	example :
+			String s = "abcdefg";
+			sout(s.substring(3,6)); //def
+			
+10: public int indexOf(char ch)
+-------------------------------
+--> it return index value of specified character
+example :
+			String s = "Tanveer";
+			sout(s.indexOf('n')); // 2
+			
+			sout(s.indexOf('z')); // -1 [ if the specified character is not available then it return "-1"]
+			
+			sout(s.indexOf('e')) ; //4  [ if same character available multiple time then it return "firts character occurence".
+
+11: public int lastIndexOf(char ch)
+-----------------------------------
+--> it return index value of specified character at last position
+	example :
+			String s = "Tanveer";
+			sout(s.lastIndexOf('e')); // 5 : it return the last occurence of character index position
+
+12: pulic String toLowerCase();
+------------------------------
+--> toLowerCase() method is used to convert the String into lowerCase
+	example :
+			String s = "TAnveeR";
+			sout(s.toLowerCase()); //tanveer
+			
+			
+13: pulic String toUpperCase();
+------------------------------
+--> toUpperCase() method is used to convert the String into UpperCase
+	example :
+			String s = "TAnveeR";
+			sout(s.toLowerCase()); //TANVEER
+			
+14 : public String trim()
+-------------------------
+--> trim() method remove any " blank space " present on start of the string and end of string
+	Example :
+			String s =   "Tanveer"  ;
+			sout(s.trim()); //Tanveer
+			
+example: best used of toLowerCase() if user enter upper or lower case and trim()
+case :
+	1: user hit lower case or upper case it convert into lowercase
+	2: remove blank space from start of the string and end of the string 
+	
+public class LowerCase {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("pls enter your city name");
+		
+        String name = sc.nextLine().toLowerCase().trim();
+
+        if (name.equals("hydrabad")) {
+            System.out.println("hello hydrabad...");
+        } else if (name.equals("banglore")) {
+            System.out.println("hello banglore...");
+        } else if (name.equals("cheanai")) {
+            System.out.println("hello chennai...");
+        } else {
+            System.out.println("pls enter a valid city ");
+        }
+    }
+}
+
+Q: what is length of given string?
+--> String s = "Tanveer patel";
+	sout(s.trim().length()); //13 :trim() method does not remove blank space present in the middle of string
+
+loop whole in immutability
+
+Q: important conslusion about String immutability?
+--> immutability : if we create an object we can not change it content if you are want to change the content the new object will be created with existing changes.
+
+	example :
+			String s1 = new String("tanveer");
+			String s2 = s1.toUpperCase();
+			String s3 = s1.toLowerCase();
+			
+			sout(s1 == s2); // F
+			sout(s1 == s3); // T
+imp:
+--> if there is no change in the content then the new reference varaiable assign to it.
+--> if there is no change in the content then reused the existing object present in heap area or SCP area.
+		
+			heap                            SCP
+			tanveer --[ s1 ]             tanveer
+			TANVEER --[ s2 ]
+			tanveer --[ s1 ]
+			
+			
+	Example :
+			String s1 = "tanveer";
+			String s2 = s1.toString(); // toString : it is used to convert into string
+			String s2 = s1.toLowerCase();
+			String s3 = s1.toUpperCase();
+			
+			sout(s1 == s2); // T
+			sout(s1 == s3); // T
+			sout(s1 == s4); // F
+			
+			heap 						SCP
+							            tanveer -- [ s1 ]
+										tanveer -- [ s2 ]
+										tanveer -- [ s3 ]
+			TANVEER -- [ s4 ]
+
+--> onces we ceate an object no one is allowed to change its content if any person want to change the content new object will be created with new changes.
+--> If there is no change in the content existing object will be reused.
+
+			
+Q : how to create an of our own immutable Class?sss
+--> declared a class as " final ".
+--> String and Wrapper class are byDefault final. 
+	
+Q : fianl vs immutability?
+--> 	
+fianl :
+------
+1: if we declared a varaiable as final we can not change the value of final varaiable.
+2: if you declared a reference varaiable is  " final " then u can not assign a new value to the "final varaiable". 
+3: final is releated to the " reference variable".
+
+immutability:
+------------
+1: immutability means we can not change the content of object onces created if you are trying to change the content of object then new objcet wull be created with new changes.
+2: immutability is releated to the "Object".
+3: by declareing a reference variable is final we can not get " immutability".
+
+
+Example :
+		Class Test
+		{
+			psvm(String[] args)
+			{
+				final StringBuffer sb = new StringBuffer("Tanveer");
+				sb.append("patel");
+				sout(sb); //Tanveerpatel [ not a immutable ]
+				
+				sb = new StringBuffer("ravi"); //CE : can not assign value to final varaiable sb
+				
+			}
+		}
+		
+Q: which of the following are meaningfull ?
+-->
+	1: final variable		: valid
+	2: final object			: Invalid
+	3: immutable varaiable  : Invalid
+	4: immutable object 	: Valid
+	
+Q : can we immutable the StringBuffer class?
+--> we can not make StringBuffer class as immutable .
+	
+Q: what does the string intern() method do?
+--> The intern() method create " exact copy of String object in the heap m/m and store it in the String constant pool.
+example :
+			public class Intern {
+    public static void main(String[] args) {
+        String s = new String("tanveer").intern();
+        String s1 = new String("tanveer");
+        String s2 = "tanveer";
+        System.out.println(s == s1); //F
+        System.out.println(s == s2); //T
+
+    }
+}
+
+Q: why String is popular HashMap key in java?
+--> sinces String is immutable , String hashcode cached [ created ] at the time of craetion and its does not need to calculated again.
+--> This makes it a " great candidate for key in map and its processing is faster than other hashmap key objects.
+--> this is why string is mostly used object as hashMap keys.
+ 
+
+		

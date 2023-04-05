@@ -1,0 +1,364 @@
+String in java
+==============
+
+1: String vs StringBuffer vs StringBuilder
+==========================================
+
+Q1 : what is String?
+======
+1: String is sequence of charactrer enclosed with double quotes.(" ").
+2: String is an Object is java
+3: String is most commenly used in java programming language
+4: String object are " immuatable".
+
+*******
+case 1:
+*******
+
+Q2 : what is immuatable?
+--> onces we create string object we can not change its containes.
+exmample:
+--------
+	String str = new String("Tanveer");
+	str.concat("Patel");
+	sout(str);  
+	
+O/p : Tanveer
+
+--> onces we create String object we are not allow to perform any changes in that object.
+--> If you are trying to perform any changes in that object with those changes new object will be created.
+--> we are not assign the new object with reference varaiable that object is eligeable for " garbage collector".
+--> hence the non-changeable behaviour is called as " immuatablelity".
+--> It String we can used concat() method to join a two string.
+
+Q3 : what is muatable ?
+--> onces we create string object we can change its containes .
+Example :
+---------
+	StringBuffer sb = new StringBuffer("Tanveer");
+	sb.append("patel");
+	sout(sb);  // Tanveerpatel
+
+--> onces we create StringBuffer Object we can allow to perform any chnages in that object.
+--> the changeable behaviour is called as " muatablelity".
+--> It StringBuffer we can used append() method to join a two string.
+
+Q4 : differnce b/w string and StringBuffer?
+
+string
+======
+	1: String class object are "immuatable".
+	2: In String class " equlas() " method used for "content comparison"
+	
+StringBuffer
+============
+	1: StringBuffer class object are "muatable".
+	2: In StringBuffer class " equlas() " method used for "address comparison".
+
+*********
+case 2:
+*********
+
+Q5: differnce b/w equlas() and == ?
+
+== operator: 
+	1: == operator for "address comparison" .[ reference comparison]
+	2: == operator check if both object pointing to the same memory location or not.
+	3: both object pointing to the same reference then it will return " true" . otherwise it will return "false".
+
+equlas() :
+	1: equlas() method is used for "content comparison" in String class.
+	2: equlas() method is used for "address comparison" in StringBuffer class.
+	2: equlas() method is used to check both object have same value or not.
+	3:
+	
+Example :
+			
+			String s1 = new String("Tanveer");
+			String s2 = new String("Tanveer");
+			sout(s1==s2); // false 
+			sout(s1.equlas(s2)); // true
+Example :
+			StringBuffer sb1 = new StringBuffer("Patel"); // false
+			StringBuffer sb2 = new StringBuffer("Patel");
+			sout(sb1 == sb2); // false
+			sout(sb1.equlas(sb2)); // false 
+
+Q6: waht is a parent class for the all class?
+--> Object class is a parent class for the all class
+
+Q7:how many method have object class?
+--> object class have 12 method
+
+Q8: list the object class method?
+--> 
+
+Q9: what is used object class equlas() method?
+--> object class equlas() method is used for " reference comparison" or "address comparison".
+--> If both object pointing to the same m/m address it will return "true" otherwise " false".
+--> it will exactly same as " == " operator.
+
+Q10: what is used of equlas() method in String class?
+--> The object class equlas() method is overriden in the String class for " content comparison".
+--> it return true or false
+
+	exmample:
+			String s1 = new String("Tanveer");
+			String s2 = new String("Tanveer");
+			sout(s1.equlas(s2)); // true [ content comparison]
+			
+			StringBuffer sb1 = new StringBuffer("Tanveer");
+			StringBuffer sb2 = new StringBuffer("Tanveer");
+			sout(sb1.equlas(sb2));  // false [ address comparison]
+			
+
+Q11: what is used of equlas() method in StringBuffer class?
+--> The object class equlas() method can not be overriden and object calss equlas() method will be executed in the StringBuffer class for " address comparison".
+--> it return true or false
+	exmample : 
+	
+			StringBuffer sb1 = new StringBuffer("Tanveer");
+			StringBuffer sb2 = new StringBuffer("Tanveer");
+			sout(sb1.equlas(sb2));  // false [ address comparison]
+			
+			String s1 = new String("Tanveer");
+			String s2 = new String("Tanveer");
+			sout(s1.equlas(s2)); // true [ content comparison].
+			
+Q12: what is String constant pool?
+--> It is also called as "SCP".
+--> It is also called as " literal pool"
+--> It is a part of " heap area".
+
+
+Q13: what is differnce String s = new String("Tanveer"); and String s = "Tanveer"; ?
+case 1:
+
+example:
+		String s = new String("Tanveer");
+		
+--> when we create a string using " new keyword" two object will be created.
+--> one object is created in the when we used "new keyword"  " heap area" and second object will be created in "SCP".
+--> string object is always pointing to the " heap area".
+--> object creation is complusory when we used " new keyword". 
+--> In heap area there may be chance of exisiting multiple object with " same content".
+
+
+case 2:
+
+example:
+		String s = "Tanveer";
+		
+--> when we create string using "literal" only one object will be created.
+--> jvm first check the same object present or not in SCP area.
+--> object creational is an optional  when we used "String literal". 
+--> first we check If object is already there resused that object.
+--> If object is not there then only create new object.
+--> In SCP area only "one object" is there with " same content".
+
+Q14: why one Copy wil be created of an object in SCP?
+--> "reusibilty" for feature purpose.
+
+Q15: object present in SCP for eligible for garbage collector or not?
+--> The object present in SCP are not eligeable for garbage collector because the reference varaiable is internally maintained by JVM.
+
+Q16: how many object are create in belowe example?
+example :
+		String s1 = new String("Tanveer");
+		String s2 = new String("Tanveer");
+		String s3 = "Tanveer";
+		String s4 = "Tanveer";
+		
+--> theye are 3 object
+--> 2 in heap area and 1 In SCP
+
+Q17: what is out put and how many object will be there?
+example :
+		String s = new String("Tanveer");
+		s.concat("patel");
+		s = s.concat("karoshi");
+		
+--> they are total 6 and 3 present in Heap area and 3 are present in SCP
+
+heap				SCP
+Tanveer				Tanveer	
+					patel
+Tanveerpatel[GC]
+					karoshi
+Tanveerkaroshi
+
+--> In Heap area two object are eligeable for garbage collector.
+
+
+Q18 : how many object are created for belowe code?
+example :
+		String s1 = new String("Tanveer");
+		s1.concat("patel"); 
+		String s2 = s1.concat("karoshi");
+		s2.concat("Chikodi");
+		sout(s1); //Tanveer
+		sout(s2); //Tanveerkaroshi
+		
+--> theye are total 8 object will be created 4 in heap and 4 in SCP
+
+Heap						SCP
+Tanveer[s1]					Tanveer
+							patel
+Tanveerpatel[GC]
+Tanveerkaroshi[s2]			karoshi
+Tanveerkaroshichikodi[GC]	chikodi
+
+
+Q19: what is out put and how many object will be created?
+example :
+		String s1 = new String("you cannot change me");
+		String s2 = new String("you cannot change me");
+		sout(s1 == s2); // false
+		
+		String s3 = "you can not change me";
+		sout(s1 == s3); // false
+		
+		String s4 = "you cannot change me";
+		sout(s3 == s4); // true
+		
+		String s5 = "you cannot" + "change me";
+		sout(s4 == s5); // true
+		
+		String s6 = "you cannot";
+		String s7 = s6 + " chage me";
+		sout(s4 == s7); // false
+		
+		final String s8 = "you cannot";
+		String s9 = s8 + " change me";
+		sout(s4 == s9); // true
+		
+		
+==> they are total
+Heap											SCP
+you cannot chage me [RV - s1]				you cannot chage me 
+you cannot chage me [RV - s2]   				  |
+												[ s3 ]
+												[ s4 ]
+												[ s5 ]
+chage me									you cannot [Rv - s6]
+you cannot chage me [Rv - s7]					|
+									        [Rv - s8]
+											[rv - s9] == s5
+
+note:										
+--> if both are constant that operation perform at "compile time only" .[SCP]
+--> if atleast one normal varaiable that operation perform on " run time only " .[heap]
+--> final varaiable perform at compile time only
+										
+Q20: where the object in create when we create an string object?
+--> when we create a string object the object will be create in heap area or SCP?
+
+Q20: when the object is created in heap area and SCP?
+--> when we create a string using "new keyword " the object is created in "heap as well as SCP area".
+--> when we create a string onjcet using " literal " the object will be created in "SCP area.
+
+Q21 : How to declare a string in Java?
+--> they are two way
+		1: using new keyword
+		2: using String literal
+		
+Q22 :Is String a primitive or derived type in Java?
+--> Strings are derived data types. 
+--> Strings are Java objects that represent sequences of characters.
+--> String objects are created using the java.lang.String class. 
+
+Q23. In Java, how can two strings be compared?
+--> they are many way 
+
+	1: String Equals Method:
+	-----------------------
+	In this method, the strings are compared based on the values within them.
+	If the values of the two strings are the same, it returns true; otherwise, it returns false. This method is case-sensitive.
+	
+	syntax : str1.equals(str2);
+	
+	2 : String Equals Ignore Case:
+	------------------------------
+	By using this method, the two strings are compared without taking into account the case (upper or lower).
+	It returns true if the two values are the same and not null.
+	
+	syntax : str1.equalsIgnoreCase(str2);
+	
+	3 : Object Equals Method: 
+	-------------------------
+	The method returns true if its arguments are equal, otherwise, it returns false.
+	Accordingly, if both arguments are null, the result is true, and if just one argument is null, the result is false.
+	
+	syntax : Object.equals(str1, str2)
+	
+	4 : String Compare To Method:
+	-----------------------------
+	This method compares input strings with each other. Upon comparison, the following value is returned:
+	
+	1: If (str1>str2), a positive value is returned.
+	2: If (str1==str2), 0 is returned.
+	3: If (str1<str2), a negative value is returned.
+	
+	syntax : str1.compareTo(str2)
+	
+	
+Q24 : Is String thread-safe in Java?
+--> Strings are immutable objects, which means they can't be changed or altered once they've been created. 
+--> As a result, whenever we manipulate a String object, it creates a new String rather than modifying the original string object.
+--> In Java, every immutable object is thread-safe, which means String is also thread-safe.
+--> As a result, multiple threads can access a string. 
+--> For instance, if a thread modifies the value of a string, instead of modifying the existing one, a new String is created, and therefore, the original string object that was shared among the threads remains unchanged.
+	
+Q25: what is importances or advantages of SCP?
+--> in SCP area "same object" can be resused by "multiple reference" instead of createing new object.
+--> instead of creatin 1cr object one object with 1cr reference is possible .[ exm : voter register application with same city and voter name].
+--> by using SCP area " performance is going to increas ".
+--> memory is saved".
+
+Q26: what is problem with SCP concept?
+--> by one reference if any person trying to chage then all the remaining reference will be affected to prevent them java introduced " immuatablelity concept ".
+--> the application behave like ab-Normally.[voter register application after 10 and 10 minutes city name changes]
+--> to handle that issue java cames with " immutable concept".
+--> if any one want change to chage the city name the new object will be created and the reference varaiable is assign to the new object this concept is called as immuatable concept.
+	--> onces we cfreat an object if we want to change the content of obbject then new object will be created this concept is called as immuatable.
+	
+Q27: why immuatablelity concept is required?
+--> just because of " SCP " concept only.	
+
+Q28: why string object are immuatable?
+--> just because of " SCP " concept only.	
+
+Q29: when we not required immuatablelity concept?
+--> when SCP concept is not there and
+--> when reusing the " same object " concept is not there that time immuatablelity is not required
+		
+Q30: which is most commenly used object in any application of java?
+--> The most commenly used object in any application in java is " String".
+	exmple:
+			1: voter register application
+			2: clg application etc
+			
+important FAQS:
+--------------
+		
+Q31 : why SCP concept is available only for String object but not for StringBuffer?
+--> String is most commenly is used  object in java. [exm: regular customer] that why special memory management is required for String.[java provided SCP  concept ]
+--> StringBuffer is very rearely used object that why special memory management is not required for StringBuffer.  
+Example:
+		IF one customer is regular for you then u treat like special one .
+		
+		
+Q32 : why string objects are immuatable where as StringBuffer buffer object are mutable?
+--> because of SCP concept [ reusing the same objecct with mutiple references]  String object are immuatable.
+--> onces we create an object if we want to change the content of the string remaining reference will be effected that why new object will be created] 
+--> In StringBuffer SCP concept is not there means " reusing same object concept is not there " every time new object will be created.
+--> if we want to change the content using the reference it will not effected on remaining references.
+
+Q33 : Inaddition to String objects any other objects are immuatable in java?
+--> yes All Wrapper clas object are immuatable.
+exmample :
+		[ Byte , Short , Integer , Long , Flaot , Dubble , Boolean , Character ]
+		
+
+Important Constructor of String class
+-------------------------------------	

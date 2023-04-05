@@ -32,6 +32,7 @@ Q: where object will be stored?
 --> hence the scope of instance variabale is exactly same as the scope of an Object.
 --> instance variabale will be stored in the " heap memory " as the part of object.
 --> instance variabale is also know as  " object level " variable
+--> "access modifier" are applicable for Instance variable
 
 --> we can not access instance variabale directly into static area.
 --> but we access instance variabale by using " object reference " into static area.
@@ -137,6 +138,7 @@ Q: what is default value of object or class or wrapper class?
 --> scope of static variable is exactly same of "scope of .class file".
 --> static variables will be stored in "Heap memory" or [ method area]
 --> static variable also known as " class level variable ".
+--> "access modifier" are applicable for Static variable
 
 --> we can access static variables either by " object reference " or class name" but recommanded  to used " class name".
 --> with in the same class we can used static variable directly not required class name.
@@ -247,9 +249,7 @@ exmaple 6:
 				sout(t1.x + " " + t1.y); o/p : 88 20
 			}
 	}
-	
-	
-	
+		
 					
 Q: when a class is load?
 --> java test : command [execute Test class] 
@@ -264,4 +264,284 @@ Q: when a class is load?
 	7: terminate main Thread
 	8: shutDown Jvm
 
+
+3: Local variables
+==================
+--> the variable decleared " inside block , inside method and inside a constructor is called local variables.
+--> local variables are also knows as " temporary variable or stack variables or automatic variables".
+--> local variables will be stored inside " Stack memory ".
+--> local variables will be created while  " executing a method , block or constructor in which we decleared it.
+--> Local variables will be destroy when the block  , method or constructor execution is complete.
+--> Scope of local variables is with in the method , block or constructor in which we decleared it.
+--> for local varaibale JVM " does not provide default value " compulsery we should provide intilization explicitly.
+--> "access modifier" are not applicable for local variable
+
+note[ best practices ] : 
+--> local variable is not recommanded to intilized into the logical block because they may be or may not be alwayas execute at run time.
+--> It is highly recommanded to intilized local variable at the time of decleration with at least default value.
+
+exmaple 1:
+--> It is highly recommanded to intilized local variable at the time of decleration with at least default value.
+
+		class Test
+			{
+				psvm(String[] args[])
+					{
+						int i = 0;
+						for(int j = 0 ; j < 3 ; j++)
+							{
+								i = i + j ;
+								sout(i+ ...+ j);
+							}
+					}
+			}
+		O/P : i = 0 , 1 , 3
+			  j = 0 , 1 , 2
+			  
+exmaple 2:
+--> If you not using local variable doest not required to perform intilized.
+		class Test
+			{
+				psvm(String[] args[])
+					{
+						int x;
+						sout("hello");
+					}
+			}
 			
+		O/P : hii
+		
+exmaple 3:
+--> for local varaibale JVM " does not provide default value " compulsery we should provide intilization explicitly.
+
+		class Test
+			{
+				psvm(String[] args[])
+					{
+						int x;
+						sout(x); CE : variable x might not have been intilized 
+					}
+			}
+			
+exmaple 4:
+--> variable not intilized
+		class Test
+			{
+				psvm(String[] args[])
+					{
+						int x;
+						if(args.length > 0)
+						{
+							x = 10;
+						}
+						sout(x); CE: variable x might not be intilized
+					}
+			}
+	
+	
+exmaple 5:
+
+		class Test
+			{
+				psvm(String[] args[])
+					{
+						int x;
+						if(args.length > 0)
+						{
+							x = 10;
+						}
+						else
+						{
+							x = 20;
+						}
+						sout(x); 
+					}
+			}
+--> javac Test.java
+--> java Test A B 
+O/P : 10
+			
+--> javac Test.java
+--> java Test 
+O/P : 20
+			
+
+conslusion
+==========
+--> only applicable modifier for local varaibale is " final ".
+	class Test
+		{
+			int x = 10;
+			int y = 20;
+			
+			psvm(String[] args)
+				{
+					final int z = 0; 
+				}
+		}
+		
+exmaple 4:
+--> "access modifier" are not applicable for local variable
+
+		class Test
+			{
+				psvm(String[] args[])
+					{
+						public int x = 10; 			CE : illegal start of exception
+						private int x1 = 10;		CE : illegal start of exception
+						protected int x2 = 10;		CE : illegal start of exception
+						static int x3 = 10;			CE : illegal start of exception
+	
+					}
+			}
+			
+			CE : illegal start of exception
+
+
+note : if we are not declearing with any modifier then by default it is default but this rule is applicable only for " Instance and static variable " but not for local variables. 
+
+summary
+======
+1: for instance and static variables Jvm will provides default values and we are not required to perfome intilization explicitly.
+2: for local variable Jvm does not provide default value compulsory we should perform initilization explicitly before using that varaibale.
+3: Instance and static variable are not a "thread safe" .[ beacuse instance and static variable can be access by mutliple thread simulatenous]
+4: Local varaibale are " Thread safe". [ for every thread seperate copy will be created for local variable ]
+
+note: 
+--> every variable in java should be " instance , static , local variable".
+--> every variable in java should be " primitive or reference varaibale ".
+
+Imp--> hence various possible combination of variables in java are
+	exmp:
+			instance primitive
+			instance reference
+			local primitive
+			local reference
+			static primitive
+			static reference
+			
+class Test
+	{
+		int x = 10;
+		static String clg = " vsmit";
+		psvm(String[] args)
+			{
+				int[] arr = new int[3];
+			}
+	}
+	
+--> int x = 10; : instance primitive
+-->	static String clg = " vsmit"; : static reference
+--> int[] arr = new int[3]; : local refernce
+
+Array uninitilized
+=====================
+1 : Q: uninitilized array at instance level?
+
+--> 1:  at instance level not intilized an array
+	int[] x;
+	sout(objcet.x); // default : null
+	sout(objcet.x[0]); // RE: null pointer exception.
+
+exmaple: 1
+		class Test
+		{
+			static int[] x;
+			psvm(String[] args)
+				{
+					Test t = new Test();
+					sout(x); // default value : null
+					sout(x[0]); RE : null pointer exception
+				}
+		}
+		
+
+--> 2 :  at instance level decleared the size
+	int[] x = new int[3];
+	sout(object.x); // hashcode : [I@123djd : hashCode
+	sout(object.x[0]); // default : 0
+
+exmaple: 2
+		class Test
+		{
+			int[] x = new int[3];
+			psvm(String[] args)
+				{
+					Test t = new Test();
+					sout(t.x); //hashCode : [I@hdsga56
+					sout(t.x[0]); //default value : 0
+				}
+		}
+		
+		
+Q: not initilization of array at static leve?
+--> 1:  at static level not intilized an array
+	static int[] x;
+	sout(x); // null
+	sout(x[0]); // RE: null pointer exception.
+
+exmaple:
+		class Test
+		{
+			int[] x;
+			psvm(String[] args)
+				{
+					Test t = new Test();
+					sout(x); // default value : null
+					sout(x[0]); RE : null pointer exception
+				}
+		}
+		
+--> 2 :  at static level we declearing size.
+	static int[] x = new int[3];
+	sout(x); // [I@123djd : hashCode
+	sout(x[0]); // 0
+
+exmaple:
+		class Test
+		{
+			static int[] x = new int[3];
+			psvm(String[] args)
+				{
+					Test t = new Test();
+					sout(x); //hashCode : [I@hdsga56
+					sout(x[0]); //default value : 0
+				}
+		}
+		
+	
+Q: not initilization of array at local level?
+--> 1:  at local level not intilized an array
+	int[] x;
+	sout(x); // CE: variable x might not have been initilized
+	sout([0]); // CE: variable x might not have been initilized
+
+exmaple:
+		class Test
+		{
+			
+			psvm(String[] args)
+				{
+					int[] x;
+					sout(x); // CE: variable x might not have been initilized
+					sout(x[0]); CE: variable x might not have been initilized
+				}
+		}
+		
+--> 2 :  at static level we declearing size.
+	int[] x = new int[3];
+	sout(x); // [I@123djd : hashCode
+	sout(x[0]); // 0
+
+exmaple:
+		class Test
+		{
+			psvm(String[] args)
+				{
+					int[] x = new int[3];
+					sout(x); //hashCode : [I@hdsga56
+					sout(x[0]); //default value : 0
+				}
+		}
+		
+note : onces we create an array every array element by default initilized with " default values ".
