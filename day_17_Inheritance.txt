@@ -1,0 +1,164 @@
+OOPS CONCEPT : 
+==============
+
+3 : Inheritance : is-as-relationship
+===============
+
+Q : what is mean by inheritance?
+--> we can inheriate the parent class properties into a child class by using " extends " keyword.
+
+Q: another name of inheritance?
+--> inheritance is also known as " is-as-relationship"
+
+Q: how to implement inheritance? 
+--> using " extends" keyword we can implement inheritance.
+
+Q : main advantage of  inheritance?
+--> code reusibility is main advantage of inheritance
+
+Example :
+
+	class A 
+	{
+		public void show1()
+		{
+			sout("parent class method");
+		}
+	}
+	
+	class B extends A
+	{
+		public void show2()
+		{
+			sout("parent class method");
+		}
+	}
+	
+	class Result
+	{
+		psvm(String[] args[])
+		{
+			A a = new A(); 
+			a.show1();
+			a.show2(); //CE
+			
+			B b = new B();
+			b.show1();
+			b.show2();
+			
+			A a = new B(); // parent reference is used to hold the child objcet 
+			a.show1();
+			a.show2(); // CE
+			
+			B b = new A() //CE :  child reference can not hold parent object
+		}
+		
+note  : 
+1 : parent class reference is used to hold child class object : A a = new B();
+2 : child class reference can not be hold parent class objcet : B b = new A();
+3 : parent class reference is used to hold the child class object  but we can not used that reference to call the child class method.
+ 
+ 
+Q : important points on an inheritance?
+--> what are method available in parent class by default available to child class.
+--> what are method available in child class by default not available to parent class.
+--> using parent reference we can not call the child class method.
+--> using child reference we can call both method available in the parent and child class.
+--> parent class reference is used to hold child class object but we can call only parent class method.
+--> child class reference can not be hold parent class objcet.
+
+Q : advantage of inheritance?
+1 : code reusibility
+2 : reduce development time.
+3 : avoide the dupication of code
+
+--> without using inheritance
+example :
+		developing a loan model :
+			1 : home Loan
+			2 : Gold Loan
+			3 : vehical Loan
+			
+	class HomeLoan
+	{
+		300 methodes() are available
+	}
+		
+	class GoldLoan
+	{
+		300 methodes() are available
+	}
+	
+	class VehicalLoan
+	{
+		300 methodes() are available
+	}
+	
+note :
+1 : they are three types of loan classes
+2 : they are total 900 method are available
+3 : developer are spend total 100 hourse for that.
+
+-->  using inheritance
+example :
+		developing a loan model :
+			1 : home Loan
+			2 : Gold Loan
+			3 : vehical Loan
+			
+--> out of 300 methodes 250 methodes() are commones.
+--> commones methodes are write inside the same class and extends that class.
+
+	class Loan
+	{
+		250 methodes() are commones for belowe class
+	}
+		
+	class HomeLoan extends Loan
+	{
+		300 methodes() are available
+	}
+		
+	class GoldLoan extends Loan
+	{
+		50 methodes() are available
+	}
+	
+	class VehicalLoan extends Loan
+	{
+		50 methodes() are available
+	}
+	
+note :
+1 : they are three types of loan classes
+2 : they are total 400 method are available
+3 : developer are spend total 50 hourse for that.
+
+Q : which method can be write inside a parent class?
+--> the most commone method which are commone for all child class such types of mathod can be write inside the parent class.
+
+Q : which method can be write inside a child class?
+--> child specific method can be write inside the child class.
+--> the method which can be applicable only for the particular child such type of method can be write inside the child class.
+
+
+Q : java api classes implement how?
+--> total java api classes implement using " inheritance "
+example :
+			object : root class
+					1 : String
+					2 : StringBuffer
+					3 : Number
+					4 : math
+					5 : Throwable
+						1 : Exeception
+							1 : run time exception
+								1 : ArithmaticExeception
+								2 : NullPointerExeception
+							2 : IO exception
+						2 : Error
+							1 : virtual machine Error
+							2 : 
+			
+Q : which class is a root class for java exception hirerichey?
+--> Throwable class is a root class

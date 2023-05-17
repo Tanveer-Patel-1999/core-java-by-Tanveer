@@ -1,0 +1,24 @@
+OOPS CONCEPT : 
+==============
+
+1 : Data hiding
+================
+Q : what is a data hiding?
+--> Data hiding means hiding a date or intenal data should not go out directly some set of authenication is required .
+example : 
+		A/c balance  : authenication is required
+		mail data 	 : authenication is required
+		
+--> outside person should not access our internal data directly.
+		
+Q : how to achive a data hiding?
+--> by declaring a  "data memeber as private" we can achive a data hiding.
+--> we can access that data using "get and set" method().
+--> we can apply a valiadation inside the get()n method.
+
+Q : what is a main advantage of data hiding?
+--> security is a biggest advantage.
+example :
+	1 : my account balance check by me only no other person can be check.
+		
+

@@ -1,0 +1,18 @@
+OOPS CONCEPT : 
+==============
+
+2 : Abstraction
+===============
+
+Q : what is mean by absract?
+--> absract means not a complete.
+--> absract means parrtially completed.
+
+Q : what is abstraction?
+--> abstraction means " hiding internal implementaion and shows only esentail services " is called as abstraction.
+example : ATM machine : bank doest not tell which sql query is executed etc
+
+Q : advantages of abstraction?
+--> security is a biggest advantages
+--> Enhacement become very easy. [ we can change a inter functionality java to python and other language does not effect an end user]
+--> maintainability of application is improved.  

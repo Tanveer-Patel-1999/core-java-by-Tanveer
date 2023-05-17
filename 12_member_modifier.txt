@@ -1,0 +1,55 @@
+Member modifiers
+===============
+Q : what is mean by member?
+--> it may be a " variable " or it may be " method()".
+
+Q : can we declared as member as a " public ". [ member : variable or method ]
+--> yes we can declared a member as public.
+--> member can be access from anywhere and  with in package and outside  the package but the "coressponding class should be public".
+--> public is also called as " global level access".
+
+
+Q : can we declared as member as a " default". [ member : variable or method ]
+--> yes we can declared a member as default.
+--> member can be access within the " same package " we can not access outside of a package.
+--> default is also called as " package level access".
+
+Q : can we declared as member as a " private". [ member : variable or method ]
+-->  yes we can declared a member as private.
+--> member can be access within the " same class " only we can not access outside the class.
+--> private is also called as " class level access".
+
+Q : recomnaded modifiers for variable and method is what?
+--> for variable : private
+--> for method   : public
+
+Q : can we declared as member as a " protected". [ member : variable or method ]
+-->  yes we can declared a member as private.
+-->  member can access within the  " same package or current package " but outside the package only in child class we can access.
+--> protected = default + kids
+
+
+class A 
+{
+	public void m1()
+		{
+			sout("hiii........");
+		}
+}
+
+class B extends A
+{	
+	psvm(String[] args)
+		{
+			A a = new A();
+			a.m1();
+			
+			B b = new B();
+			b.m1();
+			
+			A a = new B(); // parent class refernces we can used to hold the child class object
+			a.m1();
+		}
+}
+
+

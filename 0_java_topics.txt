@@ -1,0 +1,19 @@
+core java
+=========
+1  : java basic 				:
+2  : Identifier				:
+3  : Litteral				:
+4  : data type				:
+5  : variable				:
+6  : controle stmt			:
+6  : String					:
+7  : constructor				:
+8  : Array					:
+9  : var_arg()				:
+10 : oops					:
+11 : collections				:
+12 : exception				:
+13 : multiThreading			:
+14 : Synchronisation			:
+15 : Serialisation & De-serialisation
+ 

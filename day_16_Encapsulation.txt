@@ -1,0 +1,84 @@
+OOPS CONCEPT : 
+==============
+
+3 : Encapsulation : process of grouping variable and method into a singleUnit
+=================
+
+Q : what is mean by Encapsulation?
+defination 1 : --> The process of grouping the " data members and coressponding method into a single unit " is called Encapsulation.
+Example :
+		Every java class is an Example of Encapsulation.
+		
+		class Student
+		{
+			private int id;
+			private String name ;
+			
+			public void name ()
+			{
+			..
+			}
+		}
+	
+defination 2 : --> Encapsulation = data-hiding + abstraction
+
+defination 3 : --> hiding the data behind the method the concept is called as encapsulation. [ setter() and getter()] 
+
+Q : how to achieve Encapsulation?
+--> decalared data members. as a private
+--> used getter and setter method for every data members.
+		
+Q : which component is Encapsulated component?
+--> The component which follow " data-hiding and abstraction" that component is said be encapsulate component.
+
+
+Q : example of encapsulation?
+--> example
+
+	class Account
+	{
+		private double balance;
+		
+		public double getBalance()
+			{
+				// validation 
+				return balance;
+			}
+			
+		public void setBalance(double amount)
+			{
+				//validation
+				this.balance = 	this.balance + amount;
+			}
+				
+				
+	}
+	
+Q : what is purpose of getter and setter method?
+--> using this we can provide the " validation ".
+--> outside person always call getter and setter method required data or required operation.
+
+--> main purpose of getter and setter method using this we can access from outside .
+--> after validation in the getter and setter method we can get the required data and perform required operation. 
+
+Q : Encapsulation = data-hiding + abstraction where is data-hiding and abstraction.
+--> data-hiding : we decalared balance variable as a private.
+--> abstraction : we provide GUI screen whenewere end user click " balance-enquery button"  or "deposite button ".
+	1 : balance-enquery button enter getBalance() methode is executed 
+	2 : decalared button enter setBalance() method is executed
+	
+note : end user only seen GUL screen not showen our actual implemenation : abstraction
+
+Q : how to outside person can able to access the data?
+--> using getter() and setter() method outside person can access the data.
+
+Q : what is the advantages of Encapsulation?
+--> security is a biggest advantage.
+--> Enhancement become very easy without effecting the end user.
+--> maintainability of application is improve.
+
+Q : what is the dis-advantages of Encapsulation?
+--> increase a line of code becuse every variable we should provide getter() and setter() method.
+--> performnace is down 
+--> time consuming
+

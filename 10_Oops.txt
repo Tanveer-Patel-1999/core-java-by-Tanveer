@@ -1,0 +1,248 @@
+Java source file structure
+==========================
+
+
+Q1 : In java we can take only one class or any number of class in the java program.
+ans : we can take any number of classes in the java program.
+	  java program take any number of classes.
+	  
+	example :
+			class A
+			{
+			...
+			}
+			class B
+			{
+			...
+			}
+			class C
+			{
+			...
+			}
+			class D
+			{
+			...
+			}
+
+Q2 : we can save the above program with which name?
+ans : we can used any name to save the above java program.
+	example : A.java
+			  B.java
+			  C.java
+			  D.java
+			  Tanveer.java
+			 
+Q3 : what is a rule to save the java program?
+ans : 
+1 : java program can contain any number of classes.
+2 : java program contain at least "zero or one " public class.
+3 : If there is "no public class in the java program you can used " any name " for java program.
+4 : java program allowed only one public class if you give more then one public class you get " compiler time error ".
+5 : If java program have public class then your  "name of the java program is the same name of the public class name".
+  
+	example :
+			class A
+			{
+			...
+			}
+			public class B
+			{
+			...
+			}
+			class C
+			{
+			...
+			}
+			class D
+			{
+			...
+			}
+			
+	B.java
+	
+Q4 : If you take more then one public class in the same jave program what happend?
+--> if you take more then one public class you we get compiler time error.
+
+Q5 : which name is given to the the belowe program?
+-->
+
+class A 
+	{
+		public static void main(String[] args)
+			{
+				System.out.println("class A ");
+			}
+	}
+	
+class B
+	{
+		public static void main(String[] args)
+			{
+				System.out.println("class B ");
+			}
+	}
+	
+class C
+	{
+		public static void main(String[] args)
+			{
+				System.out.println("class C ");
+			}
+	}
+	
+class D
+	{
+	}
+	
+Ans : we can used " any name for above program "  beacuse there is no public class present in the above java program.
+	 save as  : Tanveer.java 
+	 compile  : javac Tanveer.java
+	 .class   : A.class
+				B.class
+				C.class
+				D.class
+
+Q6 : there is any relation between the class name and class contain main() method?
+--> there is no relation b/w class name and class contain main() method.
+
+Q7 : if the class does not have main method we can compile?
+--> yes we can compile we can not get compile time error.
+
+Q8 : if the class does not have main method we can run or execute?
+--> we will get error "  Could not find or load main class D.class 
+
+
+import statement
+================
+Q1 : the belowe program is compile or not?
+-->
+class Test 
+	{
+		public static void main(String[] args)
+			{
+				ArrayList list = new ArrayList();
+			}
+	}
+	
+ans : you well get compile time error becuse "import statement is missing " or " fully qulaified name is missing " for ArrayList.
+
+--> we can slove using two way
+
+	1 : using fully qulaified name :
+	: but it is a not a good practice
+	: length of code is increase
+	
+	class Test 
+	{
+		public static void main(String[] args)
+			{
+				java.util.ArrayList list = new java.util.ArrayList();
+			}
+	}
+	
+	2 : using import statement we : 
+	: It is best used 
+	: using this we can to used fully qulaified name and length of code is reduce.
+	
+	import java.util.ArrayList;
+	class Test 
+	{
+		public static void main(String[] args)
+			{
+				ArrayList list = new ArrayList();
+			}
+	}
+
+Q : what is purpose of import statement?
+--> import statemen act as " best typing shortcut".
+--> if u want to used " short name directly "
+--> if we used import statement we does not required to used " fully qulaified name ".
+--> length of code is reduce using import statement.
+
+
+Q : types of import statement?
+--> thay are two types of import statement.
+	1 : Expilcit import : 
+				Exm : import java.util.ArrayList;
+				: we want only ArrayList class present in util package.
+				
+	2 : Implicit import 
+				Exm : import java.util.*;
+				: we want all classes present in util package.
+				
+Q : which import is heighly recomanded in the coding?
+--> Expilcit import is recomanded.
+--> used Expilcit import " readability of code " is improve.
+
+
+Exmp :
+		import com.hdfc.*;
+		import com.sbi.*;
+		...
+		...
+		Account a = new Account();
+		Loan l = new Loan();
+		
+note : we do not no Account and Loan came from which package readability of code is decrease.
+
+
+Exmp :
+		import com.hdfc.Account;
+		import com.sbi.Loan;
+		...
+		...
+		Account a = new Account();
+		Loan l = new Loan();
+		
+note : know in this example we can say that Account and Loan came from which package readability of code is improve.
+
+Q : The classes and interfaces present in the package that package is not required to used import statement?
+Q : when import statement is not required>
+--> they are two types
+	1 --> java.lang package: String , Thread , Exception , StringBuffere
+	2 --> Default package : CWD : current working directory
+
+
+Q : which package is import statement is not required and this is automatically available for java program.
+--> java.lang package and default package.
+
+
+
+Packages
+========
+
+Q : what is package?
+--> a package is " group of related classes and interfaces into a single " unit is called as package.
+--> package is a encapsulation machanisum.
+	example : DB operation : java.sql package
+	
+	
+	
+class level Modifier : public and default
+====================
+
+Q : what are the modifier applicable for top level class?
+--> 5 modifier applicable for top level class
+	1 : public 
+	2 : default 
+	3 : abstract 
+	4 : final 
+	5 : strictfp
+	
+	
+Q : what are the modifier applicable for inner class?
+--> 8 modifier applicable for inner class
+	1 : public 
+	2 : default 
+	3 : abstract 
+	4 : final 
+	5 : strictfp
+	6 : private
+	7 : protected
+	8 : static
+
+Q: when object creation is not possible ?
+--> when we used "abstract keyword with class " object creation is not possible.
+
+Q: when child class creation is not possible ?
+--> when we used " final keyword with class "  child class creation is not possible.

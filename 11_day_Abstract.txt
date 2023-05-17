@@ -1,0 +1,84 @@
+Abstract : not complete just partially complete
+========
+Q : what is Abstract keyword?
+--> The abstract keyword is a non-access modifier.
+--> The abstract keyword used for classes and methods.
+--> The abstract is not used for variable.
+
+
+abstract methods :
+==================
+
+Q : what is abstract methods?
+--> the methods declared with abstract keyword is called abstract methods.
+--> abstract methods have " only declaration " but not have " implemention ". 
+--> if we dont no the implemention that time we go for the abstract methods.
+--> abstract methods does not have body.
+--> abstract methods end with semicoulumn.
+
+exmp : 
+		public abstract int numberOfWheels();
+
+
+example :
+		public class Vehical
+		{
+			public int numberOfWheels()
+				{
+					return ....;
+				}
+		}
+		
+example :
+		public class Fruits
+		{
+			public int getTest();
+				
+		}
+--> if we dont no the implemention how many wheels for the vehical.[ 2velar , 4velar , auto , truck etc]
+
+Q : who is responsible for abstract methods implemention?
+--> child classes are responsible for provide implemention for abstract methods.
+
+Q : programing example of abstract methods in real time?
+example :
+		Loan example with getIntrestRate for loans [ gold , home , education etc]
+		
+		public class Loan
+		{
+			public int getIntrestRate();
+				
+		}
+		
+Q : which one is valid abstract method?
+1 : public abstract void m1() { }
+2 : public void m1() { }
+3 : public void m1();
+4 : public abstract void m1();
+
+--> 4 : public abstract void m1();
+
+
+abstract class : partially implemention of class are called as abstract class.
+==============
+
+Q : what is mean by abstract class?
+--> If the implemention of a class is not complete or partially implemention such type of classes we are declared as abstract.
+--> If the class is abstract then "no one can create an object of that class ".
+
+abstract class vs abstract method
+=================================
+ abstract class
+ -------------
+ example : 
+ 
+ abstract class Test
+ {
+	public abstract void show();
+ }
+ 
+ 1 : if a class contain atleast one abstract method then the class should be abstract.
+ 2 : we can create an object of an abstract class.
+ 3 : 
+
+ 

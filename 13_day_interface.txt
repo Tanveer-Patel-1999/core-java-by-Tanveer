@@ -1,0 +1,34 @@
+Interface
+=========
+
+Q: what is an interafce?
+1 : Defination--> Interface is a "service requirement specification" [SRS] is called as interafce
+2 : Defination--> any contract between " client and service provider" is called as Interface.  [ service provider : provides an implementation]
+3 : Defination--> Interface is a " 100% pure abstract class". [ from 1.8 static , default and private  methode are came]
+
+--> every method present in an Interface by default " public and abstract".
+
+
+Q : how to declared an Interface?
+--> we can define a Interface using " interafce keyword".
+--> example :
+	interafce interafce_name
+	{
+		void m1();
+		
+		void m2();
+	}
+	
+	class ServiceProvide implements interafce_name
+	{
+		public void m1()
+		{
+		..
+		}
+	}
+note :
+1 : whenewere we override the interface method into the class that time we should declared a method as " public" compulsory.
+2 : whenewere we implements interafce we should "override all the method present in the interafce" or we can declared as class as "abstract".	
+	
+Q : who is responsible for implementation of interafce?
+--> class is responsible for implementation of an interface
